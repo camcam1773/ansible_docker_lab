@@ -1,0 +1,1 @@
+ansible --private-key master_key all -m ping

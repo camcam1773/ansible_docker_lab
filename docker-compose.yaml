@@ -14,5 +14,13 @@ services:
     stdin_open: true
     tty: true
     hostname: client1
+  client2:
+    build:
+      context: .
+      dockerfile: client_container
+    container_name: client_2
+    stdin_open: true
+    tty: true
+    hostname: client2
 volumes:
   keyshare:
