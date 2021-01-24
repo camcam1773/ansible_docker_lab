@@ -6,6 +6,8 @@ services:
     stdin_open: true
     tty: true
     hostname: master
+    environment:
+      - ANSIBLE_HOST_KEY_CHECKING=False
   client1:
     build:
       context: .

@@ -1,0 +1,22 @@
+-
+  name: apt-upgrade
+  hosts: all
+  tasks:
+    - name: apt update
+      apt:
+        update-cache: yes
+        cache_valid_time: 3600
+    - name: check apt package
+      apt:
+        name: nano
+        state: present
+        update-cache: yes
+        cache_valid_time: 3600
+    - name: check apt package
+      apt:
+        name: apache2
+        state: absent
+    - name: remove useless packages
+      apt:
+        autoclean: yes
+        autoremove: yes            

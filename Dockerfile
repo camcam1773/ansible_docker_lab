@@ -7,6 +7,9 @@ RUN apt update && apt install software-properties-common -y && \
 RUN useradd --create-home --shell /bin/bash agent
 RUN mkdir /var/run/sshd
 RUN mkdir /root/.ssh
-COPY inventory.yaml /etc/ansible/hosts
-COPY master_key /
+WORKDIR /root/
+COPY inventory.yaml .
+COPY inventory.txt .
+COPY playbooks .
+COPY master_key .
 RUN chmod 600 master_key

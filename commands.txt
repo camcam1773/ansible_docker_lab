@@ -1,1 +1,3 @@
 ansible --private-key master_key all -m ping
+ansible -i inventory.txt --private-key master_key all -m ping
+ansible-playbook -i inventory.txt --private-key master_key playbook1.yaml
