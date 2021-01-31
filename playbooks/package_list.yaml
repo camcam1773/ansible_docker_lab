@@ -1,0 +1,16 @@
+-
+  name: list installed packages
+  hosts: all
+  tasks:
+    - name: Gather the package facts
+      package_facts:
+        manager: auto
+
+    - name: Print the package facts
+      debug:
+        var: ansible_facts.packages
+
+    - name: Check whether a package called foobar is installed
+      debug:
+        msg: "{{ ansible_facts.packages['nano'] | length }} versions are installed!"
+      when: "'nano' in ansible_facts.packages"
