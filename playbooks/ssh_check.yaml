@@ -1,0 +1,14 @@
+-
+  name: ssh service status
+  hosts: all
+  tasks:
+    - 
+      command: service ssh status
+      register: command_output
+    - 
+      service: 
+        name: ssh
+        state: started
+        enabled: yes          
+    - debug:
+        var: command_output.stdout_lines
