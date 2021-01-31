@@ -6,17 +6,21 @@
       apt:
         update-cache: yes
         cache_valid_time: 3600
+      register: apt1
     - name: check apt package
       apt:
         name: nano
         state: present
         update-cache: yes
         cache_valid_time: 3600
-    - name: check apt package
+      register: apt2
+    - name: check apache2
       apt:
         name: apache2
         state: absent
     - name: remove useless packages
       apt:
         autoclean: yes
-        autoremove: yes            
+        autoremove: yes
+    - debug:
+        var: apt1.stdout_lines,apt2.stdout_lines,apt1.cache_update_time,apt1.cache_updated
