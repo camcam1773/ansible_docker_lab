@@ -5,7 +5,6 @@ RUN apt update && apt install openssh-server openssh-client -y \
 RUN mkdir /var/run/sshd
 RUN mkdir /root/.ssh
 COPY client_entry.sh /
-COPY master_key.pub /
 RUN useradd --create-home --shell /bin/bash agent
 RUN service ssh start
 

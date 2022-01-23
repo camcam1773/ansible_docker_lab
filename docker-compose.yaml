@@ -8,6 +8,8 @@ services:
     hostname: master
     environment:
       - ANSIBLE_HOST_KEY_CHECKING=False
+    volumes:
+      - keyshare:/keyshare
   client1:
     build:
       context: .
@@ -16,6 +18,8 @@ services:
     stdin_open: true
     tty: true
     hostname: client1
+    volumes:
+      - keyshare:/keyshare
   client2:
     build:
       context: .
@@ -24,5 +28,7 @@ services:
     stdin_open: true
     tty: true
     hostname: client2
+    volumes:
+      - keyshare:/keyshare  
 volumes:
   keyshare:

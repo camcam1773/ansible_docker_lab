@@ -11,5 +11,6 @@ WORKDIR /root/
 COPY inventory.yaml .
 COPY inventory.txt .
 COPY playbooks .
-COPY master_key .
-RUN chmod 600 master_key
+RUN ssh-keygen -t rsa -C ansible_master -f ~/.ssh/id_rsa
+RUN mkdir /keyshare
+RUN cp ~/.ssh/id_rsa.pub /keyshare/master.pub
