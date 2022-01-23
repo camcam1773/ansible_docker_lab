@@ -1,4 +1,3 @@
-ansible --private-key master_key all -m ping
-ansible -i inventory.txt --private-key master_key all -m ping
-ansible-playbook -i inventory.txt --private-key master_key playbook1.yaml
+ansible -i inventory.txt all -m ping
+ansible-playbook -i inventory.txt playbook1.yaml
 docker cp foo.txt mycontainer:/foo.txt
